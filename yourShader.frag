@@ -26,6 +26,7 @@ void main() {
     // Plot a line
     float pct = plot(st,y);
     color = (1.0-pct)*color+pct*vec3(0.0, 1.0, 0.0);
-
-	gl_FragColor = vec4(texture2D(u_texture, st));
+    vec4 texColor = texture2D(u_texture, st);
+    texColor.b = st.x;
+	gl_FragColor = texColor;
 }
