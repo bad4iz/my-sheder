@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+        }
+        .one{
+            top: 0;
+            background-color: red;
+
+        }
+        .two{
+            bottom: 0;
+            right: 0;
+            background-color: green;
+
+        }
+        .none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+  const one = document.createElement('div');
+  one.classList.add('one');
+  one.classList.add('div');
+  const two = document.createElement('div');
+  two.classList.add('two');
+  two.classList.add('div');
+  two.classList.add('none');
+
+  document.body.appendChild(one);
+  document.body.appendChild(two);
+
+  function togl(){
+    one.classList.toggle('none');
+    two.classList.toggle('none');
+  }
+  let i = 0;
+  function flash() {
+    window.requestAnimationFrame(flash);
+
+    let a = Math.round(i/100);
+    if(!(i % 100)){
+      console.log(a);
+      togl();
+    }
+    // if(i > 100){
+    //   i = 0;
+    //   one.style.display = 'none';
+    //   two.style.display = 'block';
+    // }
+    i++;
+  }
+  flash();
+</script>
+</body>
+</html>
