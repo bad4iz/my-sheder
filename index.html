@@ -5,17 +5,11 @@
     <title>Title</title>
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
 
-    <style>
-        .div{
-            width: 200px;
-            height: 200px;
-            background-color: red;
-        }
-    </style>
+
 </head>
 <body>
 
-<canvas id="glslCanvas" data-fragment-url='yourShader.frag'></canvas>
+<canvas id="glslCanvas" data-fragment-url='glitch.frag'></canvas>
 
 <script>
   var canvas = document.getElementById("glslCanvas");
@@ -30,6 +24,7 @@
   canvas.style.height = '50%';
 
   sandbox.setUniform("u_texture","3p70VVlmt0A.webm");
+  sandbox.setUniform("u_video","media/video/spiderman.mp4");
 </script>
 </body>
 </html>
