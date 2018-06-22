@@ -37,7 +37,8 @@ void main() {
     float pct = plot(st, y);
 
     vec4 texColor = texture2D(u_texture, st);
-    vec4 video = texture2D(u_video, st);
+//    vec4 video = texture2D(u_video, vec2(st.x + abs(st.x  + cos( u_time * 2.0) / 22.), abs(st.x  + cos( u_time * 2.0) / 22.) + abs(st.y  + sin( u_time * 20.0) / 22.)));
+    vec4 video = texture2D(u_video, st );
 
 //    if( _mouse.x >= st.x  - 0.01 && _mouse.x <= st.x +0.01 && _mouse.y >= st.y  - 0.01 && _mouse.y <= st.y +0.01){
 //        texColor.g=1.0;
@@ -49,11 +50,11 @@ void main() {
 
     vec3 color = vec3(y);
 
-    if( video.g > .5 && video.r < .5){
+    if( video.g > .5 && video.r < .5 && video.b < .5){
 
         video = texColor;
 
     }
 
-	gl_FragColor = video;
+	gl_FragColor = texColor;
 }
