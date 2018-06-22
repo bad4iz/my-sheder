@@ -5,7 +5,10 @@
     <title>Title</title>
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
 
-
+    <select name="select" id="select">
+        <option value="media/video/putya.mp4">путя</option>
+        <option value="media/video/spiderman.mp4">паук</option>
+    </select>
 </head>
 <body>
 
@@ -23,8 +26,12 @@
   canvas.style.width = '100%';
   canvas.style.height = '100%';
 
-  sandbox.setUniform("u_texture","1354008491_02.jpg");
-  // sandbox.setUniform("u_video","media/video/collection.mp4");
+  sandbox.setUniform("u_texture","media/video/3p70VVlmt0A.webm");
+
+
+  document.getElementById('select').onchange = (e) =>{
+      sandbox.setUniform("u_video",e.target.value);
+  }
 </script>
 </body>
 </html>
