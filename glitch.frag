@@ -36,7 +36,7 @@ void main() {
     // Plot a line
     float pct = plot(st, y);
 
-    vec4 texColor = texture2D(u_texture, st);
+    vec4 texColor = texture2D(u_texture, vec2(st.x + abs(st.x  + cos( u_time * 2.0) / 22.), abs(st.x  + cos( u_time * 2.0) / 22.) + abs(st.y  + sin( u_time * 20.0) / 22.)));
 //    vec4 video = texture2D(u_video, vec2(st.x + abs(st.x  + cos( u_time * 2.0) / 22.), abs(st.x  + cos( u_time * 2.0) / 22.) + abs(st.y  + sin( u_time * 20.0) / 22.)));
     vec4 video = texture2D(u_video, st );
 
