@@ -8,6 +8,7 @@
     <select name="select" id="select">
         <option value="media/video/putya.mp4">путя</option>
         <option value="media/video/spiderman.mp4">паук</option>
+        <option value="media/video/studia.mp4">studia</option>
     </select>
 </head>
 <body>
@@ -27,9 +28,11 @@
   canvas.style.height = '100%';
 
   sandbox.setUniform("u_texture","media/video/3p70VVlmt0A.webm");
+  sandbox.setUniform("u_video", 'media/video/studia.mp4');
 
 
   document.getElementById('select').onchange = (e) =>{
+      sandbox.setUniform("u_video",'');
       sandbox.setUniform("u_video",e.target.value);
   }
 </script>
