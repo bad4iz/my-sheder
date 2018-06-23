@@ -45,10 +45,10 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis doloremque ips
         var sandbox_thumbnail = "";
         canvas.style.width = '100%';
         canvas.style.height = '100%';
-
+        setTimeout(()=>{
         sandbox.setUniform("u_texture","media/video/3p70VVlmt0A.webm");
         sandbox.setUniform("u_video", 'media/video/putya.mp4');
-
+        }, 1000);
 
         document.getElementById('select').onchange = (e) => {
             sandbox.setUniform("u_video", '');
