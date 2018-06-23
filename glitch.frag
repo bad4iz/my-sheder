@@ -26,27 +26,16 @@ void main() {
 	vec2 st = gl_FragCoord.xy/u_resolution;
 	vec2 _mouse = u_mouse/u_resolution;
 
-//    float y = st.x;
-
-//    float y = step(0.5,st.x);
-//    float y = smoothstep(0.1,0.7,st.x);
     float y = abs(st.x);
 
 
     // Plot a line
     float pct = plot(st, y);
 
-    vec4 texColor = texture2D(u_texture, vec2(st.x * 1.5, st.y * 1.5 - .5));
+    vec4 texColor = texture2D(u_texture, st);
 //    vec4 video = texture2D(u_video, vec2(st.x + abs(st.x  + cos( u_time * 2.0) / 22.), abs(st.x  + cos( u_time * 2.0) / 22.) + abs(st.y  + sin( u_time * 20.0) / 22.)));
-    vec4 video = texture2D(u_video, st );
+    vec4 video = texture2D(u_video, st*2.0 - _mouse );
 
-//    if( _mouse.x >= st.x  - 0.01 && _mouse.x <= st.x +0.01 && _mouse.y >= st.y  - 0.01 && _mouse.y <= st.y +0.01){
-//        texColor.g=1.0;
-//        texColor.r=1.0;
-//        texColor.b=1.0;
-//    };
-//    texColor.g = texColor.r;
-//    texColor.r = abs(sin(u_time));
 
     vec3 color = vec3(y);
 
