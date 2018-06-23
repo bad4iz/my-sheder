@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    <script type="text/javascript"
+            src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     <style>
         canvas#glslCanvas {
             position: fixed;
@@ -14,12 +15,19 @@
     </style>
 </head>
 <body>
-
-<select name="select" id="select">
-    <option ></option>
+выберите видео
+<select name="select" id="video">
+    <option></option>
     <option value="media/video/putya.mp4">путя</option>
     <option value="media/video/spiderman.mp4">паук</option>
     <option value="media/foto/studia.jpg">studia</option>
+</select>
+выберите фон
+<select name="select" id="texture">
+    <option></option>
+    <option value="media/video/putya.mp4">путя</option>
+    <option value="media/video/3p70VVlmt0A.webm">природа</option>
+    <option value="media/video/spiderman.mp4">паук</option>
 </select>
 <p>jljlkjl;jl;jkkljkjlj</p>
 <p>jljlkjl;jl;jkkljkjlj</p>
@@ -30,11 +38,12 @@
 sdsadfasdf
 asdfasfdasf
 asdfasfdasf
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis doloremque ipsum labore laborum saepe sapiente tempora. Aperiam assumenda blanditiis dolorum, ea eveniet facere nihil, non odio praesentium quasi totam veniam.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis doloremque ipsum labore laborum saepe sapiente
+tempora. Aperiam assumenda blanditiis dolorum, ea eveniet facere nihil, non odio praesentium quasi totam veniam.
 <canvas id="glslCanvas" data-fragment-url='glitch.frag'></canvas>
 
 <script>
-    document.addEventListener("DOMContentLoaded", ()=> {
+    document.addEventListener("DOMContentLoaded", () => {
         var canvas = document.getElementById("glslCanvas");
         var sandbox = new GlslCanvas(canvas);
         var texCounter = 0;
@@ -45,14 +54,20 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis doloremque ips
         var sandbox_thumbnail = "";
         canvas.style.width = '100%';
         canvas.style.height = '100%';
-        setTimeout(()=>{
-        sandbox.setUniform("u_texture","media/video/3p70VVlmt0A.webm");
-        sandbox.setUniform("u_video", 'media/video/putya.mp4');
-        }, 1000);
 
-        document.getElementById('select').onchange = (e) => {
+        sandbox.setUniform("u_texture", "media/video/3p70VVlmt0A.webm");
+        sandbox.setUniform("u_video", 'media/video/putya.mp4');
+
+        setTimeout(() => {
+            sandbox.setUniform("u_video", 'media/video/putya.mp4');
+        }, 2000);
+        document.getElementById('video').onchange = (e) => {
             sandbox.setUniform("u_video", '');
             sandbox.setUniform("u_video", e.target.value);
+        }
+        document.getElementById('texture').onchange = (e) => {
+            sandbox.setUniform("u_texture", '');
+            sandbox.setUniform("u_texture", e.target.value);
         }
     });
 </script>
