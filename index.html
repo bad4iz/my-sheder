@@ -56,12 +56,13 @@ tempora. Aperiam assumenda blanditiis dolorum, ea eveniet facere nihil, non odio
         canvas.style.width = '100%';
         canvas.style.height = '100%';
 
-        sandbox.setUniform("u_texture", "media/video/3p70VVlmt0A.webm");
-        sandbox.setUniform("u_video", 'media/video/putya.mp4');
+        // sandbox.setUniform("u_texture", "media/video/3p70VVlmt0A.webm");
+        // sandbox.setUniform("u_video", 'media/video/putya.mp4');
 
         setTimeout(() => {
+            sandbox.setUniform("u_texture", "media/video/3p70VVlmt0A.webm");
             sandbox.setUniform("u_video", 'media/video/putya.mp4');
-        }, 2000);
+        }, 1000);
         document.getElementById('video').onchange = (e) => {
             sandbox.setUniform("u_video", '');
             sandbox.setUniform("u_video", e.target.value);
