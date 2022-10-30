@@ -47,11 +47,11 @@
         canvas.style.height = '100%';
 
         // sandbox.setUniform("u_texture", "media/video/3p70VVlmt0A.webm");
-        // sandbox.setUniform("u_video", 'media/video/putya.mp4');
+        // sandbox.setUniform("u_video", 'media/video/spiderman.mp4');
 
         setTimeout(() => {
             sandbox.setUniform("u_texture", "media/video/3p70VVlmt0A.webm");
-            sandbox.setUniform("u_video", 'media/video/putya.mp4');
+            sandbox.setUniform("u_video", 'media/video/spiderman.mp4');
         }, 1000);
         document.getElementById('video').onchange = (e) => {
             sandbox.setUniform("u_video", '');
